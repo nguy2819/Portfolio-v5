@@ -1,322 +1,102 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import personBackground from '../../images/background1.png';
-import background2 from '../../images/background2.png';
-import background3 from '../../images/background3.png';
+import personBackground from '../../images/WelcomePerson.png';
+import yellowWelcomeBackground from '../../images/YellowWelcome.png';
+import whiteBackground from '../../images/WhiteWithShapes.png';
 import frontend from '../../images/frontend.png';
 import backend from '../../images/backend.png';
-import background4 from '../../images/background4.png';
-import Project1 from '../../images/Project1.png';
-import background5 from '../../images/background5.png';
-import financeapp from '../../images/Finance-app.png';
-import background6 from '../../images/background6.png';
-import background7 from '../../images/background7.png';
+// import frontend from '../../images/frontend.png';
+// import backend from '../../images/backend.png';// import personBackground from '../../images/background1.png';
+// import background2 from '../../images/background2.png';
+// import background3 from '../../images/background3.png';
+// import background4 from '../../images/background4.png';
+// import Project1 from '../../images/Project1.png';
+// import background5 from '../../images/background5.png';
+// import financeapp from '../../images/Finance-app.png';
+// import background6 from '../../images/background6.png';
+// import background7 from '../../images/background7.png';
 
-const StyledDiv = styled('div')`
-    background-image: url(${personBackground});
-    background-repeat: no-repeat;
-    width: calc(100% - 19em);
-    height: 443px;
-    left: 19em;
-    overflow: auto;
-    position: absolute;
+const desktopWidth = 800;
+
+const PageContainer = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
-const BackgrounDiv = styled('div')`
-    background-image: url(${background2});
-    height: 443px;
-    overflow: none;
-    position: relative;
+const PageSection = styled.div`
+    display: inline-block;
+    background-image: url(${props => props.backgroundUrl});
+    width: 100%;
 `;
 
-const BackgrounDiv2 = styled('div')`
-    background-image: url(${background7});
-    height: 640px;
-    overflow: none;
-    position: relative;
+const WelcomeText = styled.p`
+    font-size: 24px;
+
+    @media(min-width: ${desktopWidth}px){
+        font-size: 42px;
+    }
 `;
 
-const BackgroundDiv3 = styled('div')`
-    background-image: url(${background3});
-    height: 572px;
-    overflow: none;
-    position: relative;
-`;
-
-const BackgroundDiv4 = styled('div')`
-    background-image: url(${background5});
-    height: 500px;
-    overflow: none;
-    position: relative;
-`;
-
-const BackgroundDiv5 = styled('div')`
-    background-image: url(${background6});
-    background-repeat: no-repeat;
-    overflow: auto;
-    position: relative;
-    left: 19em;
-    height: 443px;
-    width: calc(100% - 19em);
-    top: 5em;
-`;
-
-const StyledP1 = styled('p')`
-    top: 100px;
-    left: 190px;
-    font-size: 42px;
-    position: absolute;
-`;
-
-const StyledP2 = styled('p')`
-    top: 140px;
-    left: 290px;
-    font-size: 70px;
-    font-weight: bold;
+const StylizedName = styled.p`
+    font-size: 24px;
     font-family: 'Satisfy', cursive;
+    font-weight: bold;
     color: #524A9D;
-    position: absolute;
+
+    @media(min-width: ${desktopWidth}px){
+        font-size: 70px;
+    }
 `;
 
-const StyledParentContainer = styled('div')`
+const SkillSection = styled.div`
     display: flex;
+    flex-direction: column;
 `;
 
-const StyledRowContainer = styled('div')` 
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    width: 80%;
-    margin-top: 4.7em;
+const SkillDiv = styled.div`
+    display: inline-flex;
+    flex-direction: row;
 `;
 
-const StyledRowBox = styled('div')`
-    background-color: white; 
-    display: block;
-    height: 100%;
-    width: 100%;
+const SkillContainer = styled.div`
+    display: inline-block;
 `;
 
-const StyledImage1 = styled('img')`
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 130px;
-`;
-
-const PinkHeader = styled('h2')`
-    text-align: center;
-    color: #EE6EA2;
-    font-weight: bold;
-    font-size: 17px;
-    text-decoration: underline;
-    margin-top: 35px;
-`;
-
-const StyledP4 = styled('p')`
-    text-align: center;
-`;
-
-const ProjectMainHeader = styled('p')`
-    color: white;
-    font-size: 45px;
-    font-weight: bold;
-    margin-top: 0;
-    padding-top: 30px;
-    text-align: center;
-`;
-
-const ProjectSubText = styled('p')`
-    color: white;
-    font-size: 22px;
-    text-align: center;
-`;
-
-const WhiteHeader3 = styled('p')`
-    color: black;
-    top: 36px;
-    left: 526px;
-    font-size: 22px;
-    position: absolute;
-`;
-
-const WhiteHeader4 = styled('p')`
-    color: black;
-    top: 93px;
-    left: 570px;
-    font-size: 22px;
-    position: absolute;
-`;
-
-const WhiteHeader5 = styled('p')`
-    color: black;
-    top: 150px;
-    left: 650px;
-    font-size: 22px;
-    position: absolute;
-`;
-
-const WhiteHeader6 = styled('p')`
-    color: black;
-    top: 210px;
-    left: 650px;
-    font-size: 22px;
-    position: absolute;
-`;
-
-const ProjectContainer = styled('div')`
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    width: 80%;
-
-    @media(max-width: 500px){
-        width: 100%;
-    }
-`;
-
-const StyledImageProject = styled('img')`
-    display: block;
-    height: 100%;
-    width: 100%;
-`;
-
-const ButtonHoverOnImageProject = styled('div')`
-    position: absolute; 
-    bottom: 0; 
-    background: rgb(0, 0, 0);
-    background: #FBD64A; 
-    color: #f1f1f1; 
-    width: 100%;
-    transition: .5s ease;
-    opacity:0;
-    color: white;
-    font-size: 20px;
-    padding: 20px 0;
-    text-align: center;
-`;
-
-const ProjectBox = styled('div')`
-    position: relative;
-    width: 50%;
-    height:330px;
-
-    &:hover ${ButtonHoverOnImageProject}{
-        opacity: 1;
-    }
-`;
-
-const StyledP5 = styled('p')`
-    top: 200px;
-    left: 700px;
-    font-size: 70px;
-    font-weight: bold;
-    font-family: 'Satisfy', cursive;
-    color: #524A9D;
-    position: absolute;
-`;
-
-const Button = styled('button')`
-
-    
-        background-color: #FACF49;
-        border: 2px solid #524A9D;
-        border-radius: 12px;
-        color: #524A9D;
-        padding: 15px 32px;
-        text-align: center;
-        display: inline-block;
-        font-size: 22px;
-        margin: 4px 2px;
-        cursor: pointer;
-        position: absolute;
-        top: 380px;
-        left: 710px;
-    
-
-    &:hover {
-        background-color: #524A9D;
-        border: 2px solid #524A9D;
-
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    &:hover a{
-        color: white;
-    }
+const SkillList = styled.ul`
+    list-style-type: none
 `;
 
 const Mainpage = () => {
+    const [screenWidth, setScreenWidth] = useState(500);
+
+    useEffect(() => {
+        function handleResize(){
+            setScreenWidth(window.innerWidth);
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    });
+
     return (
-        <div>
-            <BackgrounDiv>
-                <StyledDiv></StyledDiv>
-                <StyledP1>Hi, I'm a Full-stack Web Developer</StyledP1>
-                <StyledP2>Tien Borland!</StyledP2>
-            </BackgrounDiv>
-            <BackgrounDiv2>
-                <StyledParentContainer>
-                    <StyledRowContainer>
-                        <StyledRowBox>
-                            <StyledImage1 src={frontend} />
-                            <PinkHeader>Languages I speak:</PinkHeader>
-                            <StyledP4>HTML, CSS, Javascript, React, Redux</StyledP4>
-                            <PinkHeader>Dev Tools:</PinkHeader>
-                            <StyledP4>Styled Components</StyledP4>
-                            <StyledP4>CSS-Tricks</StyledP4>
-                            <StyledP4>Bootstrap</StyledP4>
-                            <StyledP4>Materialize</StyledP4>
-                            <StyledP4>Github/ Gitlab</StyledP4>
-                            <StyledP4>Terminal</StyledP4>
-                        </StyledRowBox>
-                    </StyledRowContainer>
-                    <StyledRowContainer>
-                        <StyledRowBox>
-                            <StyledImage1 src={backend} />
-                            <PinkHeader>Languages I use:</PinkHeader>
-                            <StyledP4>Javascript  (Node JS), Express, Python, SQL</StyledP4>
-                            <PinkHeader>Dev Tools:</PinkHeader>
-                            <StyledP4>Firebase</StyledP4>
-                            <StyledP4>MongoDB</StyledP4>
-                            <StyledP4>GraphQL </StyledP4>
-                            <StyledP4>My SQL</StyledP4>
-                            <StyledP4>RESTful APIs</StyledP4>
-                        </StyledRowBox>
-                    </StyledRowContainer>
-                </StyledParentContainer>
-            </BackgrounDiv2>
-            <BackgroundDiv3>
-                <ProjectMainHeader>My Projects</ProjectMainHeader>
-                <ProjectSubText>Here are a few recent design projects. </ProjectSubText>
-                <StyledParentContainer>
-                    <ProjectContainer>
-                        <ProjectBox>
-                            <StyledImageProject src={Project1} />
-                            <ButtonHoverOnImageProject><a href="https://christmas-wish-family.firebaseapp.com/" target="_blank">View Website</a></ButtonHoverOnImageProject>
-                        </ProjectBox>
-                        <ProjectBox>
-                            <StyledImageProject src={financeapp} />
-                            <ButtonHoverOnImageProject><a href="https://finance-app.netlify.com/" target="_blank">View Website</a></ButtonHoverOnImageProject>
-                        </ProjectBox>
-                    </ProjectContainer>
-                </StyledParentContainer>
-            </BackgroundDiv3>
-            <BackgroundDiv4>
-                <BackgroundDiv5></BackgroundDiv5>
-                <WhiteHeader3>I graduated with B.S. in Health Management from University of Minnesota. </WhiteHeader3>
-                <WhiteHeader4>I also certified as a Full-stack Web Developer from Helio Training.</WhiteHeader4>
-                <WhiteHeader5>Do you think I can add value to your company? </WhiteHeader5>
-                <WhiteHeader6>Are you interested in working together? If so, ...</WhiteHeader6>
-                <StyledP5>Let's talk!</StyledP5>
-                <Button>
-                    <a href="mailto:borlandtien@gmail.com">Start a conversation
-                    </a>
-                </Button>
-            </BackgroundDiv4>
-        </div>
+        <PageContainer>
+            <PageSection backgroundUrl={screenWidth > desktopWidth ? personBackground : yellowWelcomeBackground}>
+                <WelcomeText>Hi, I'm a Full-stack Web Developer</WelcomeText>
+                <StylizedName>Tien Borland!</StylizedName>
+            </PageSection>
+            <PageSection backgroundUrl={whiteBackground}>
+                <SkillSection>
+                    <SkillContainer>
+                        <SkillDiv>
+                        <img src={frontend} />
+                        </SkillDiv>
+                    </SkillContainer>
+                    <SkillContainer>
+                        <img src={backend} />
+                    </SkillContainer>
+                </SkillSection>
+            </PageSection>
+        </PageContainer>
     )
 }
 
