@@ -15,7 +15,7 @@ import background7 from '../../images/background7.png';
 const StyledDiv = styled('div')`
     background-image: url(${personBackground});
     background-repeat: no-repeat;
-    width: 100%;
+    width: calc(100% - 19em);
     height: 443px;
     left: 19em;
     overflow: auto;
@@ -53,11 +53,11 @@ const BackgroundDiv4 = styled('div')`
 const BackgroundDiv5 = styled('div')`
     background-image: url(${background6});
     background-repeat: no-repeat;
-    height: 300px;
     overflow: auto;
     position: relative;
     left: 19em;
     height: 443px;
+    width: calc(100% - 19em);
     top: 5em;
 `;
 
@@ -143,7 +143,23 @@ const WhiteHeader3 = styled('p')`
 const WhiteHeader4 = styled('p')`
     color: black;
     top: 93px;
-    left: 660px;
+    left: 570px;
+    font-size: 22px;
+    position: absolute;
+`;
+
+const WhiteHeader5 = styled('p')`
+    color: black;
+    top: 150px;
+    left: 650px;
+    font-size: 22px;
+    position: absolute;
+`;
+
+const WhiteHeader6 = styled('p')`
+    color: black;
+    top: 210px;
+    left: 650px;
     font-size: 22px;
     position: absolute;
 `;
@@ -191,8 +207,8 @@ const ProjectBox = styled('div')`
 `;
 
 const StyledP5 = styled('p')`
-    top: 87px;
-    left: 740px;
+    top: 200px;
+    left: 700px;
     font-size: 70px;
     font-weight: bold;
     font-family: 'Satisfy', cursive;
@@ -214,8 +230,8 @@ const Button = styled('button')`
         margin: 4px 2px;
         cursor: pointer;
         position: absolute;
-        top: 272px;
-        left: 750px;
+        top: 380px;
+        left: 710px;
     
 
     &:hover {
@@ -290,11 +306,13 @@ const Mainpage = () => {
             </BackgroundDiv3>
             <BackgroundDiv4>
                 <BackgroundDiv5></BackgroundDiv5>
-                <WhiteHeader3>Do you think I can add value to your company? </WhiteHeader3>
-                <WhiteHeader4>You're interested in working together?</WhiteHeader4>
+                <WhiteHeader3>I graduated with B.S. in Health Management from University of Minnesota. </WhiteHeader3>
+                <WhiteHeader4>I also certified as a Full-stack Web Developer from Helio Training.</WhiteHeader4>
+                <WhiteHeader5>Do you think I can add value to your company? </WhiteHeader5>
+                <WhiteHeader6>Are you interested in working together? If so, ...</WhiteHeader6>
                 <StyledP5>Let's talk!</StyledP5>
                 <Button>
-                    <a href="/sendmessage">Start a conversation
+                    <a href="mailto:borlandtien@gmail.com">Start a conversation
                     </a>
                 </Button>
             </BackgroundDiv4>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LinkedInIcon = styled('i')`
@@ -47,12 +47,21 @@ const NavContainer = styled('div')`
     overflow: auto;
 `;
 
-const StyledMainLink = styled(Link)`
+const StyledCopyRight = styled('div')`
     color: white;
-    font-size: 1.5em;
+    font-size: 1em;
     text-decoration: none;
     padding: 10px 25px;
     display: inline-block
+`;
+
+const StyledQuote = styled('div')`
+    color: white;
+    font-size: 1.3em;
+    text-decoration: none;
+    padding: 10px 150px;
+    display: inline-block;
+    font-family: 'Satisfy', cursive;
 
 `;
 
@@ -81,11 +90,13 @@ const NavListItem = styled('li')`
     }
 `;
 
-const Navbar = () => {
+const Footer = () => {
     return (
         <nav>
             <NavContainer>
-                <StyledMainLink to='/'>Tien Borland</StyledMainLink>
+                {/* <StyledMainLink to='/'>Tien Borland</StyledMainLink> */}
+                <StyledCopyRight>Raw coding by me © Tien Borland. Made with Animaker.</StyledCopyRight>
+                <StyledQuote>Living, learning, & leveling up one day at a time.</StyledQuote>
                 <NavBarSocialList>
                     <NavListItem>
                         <a href="https://www.linkedin.com/in/tien-borland/" >
@@ -113,4 +124,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+export default Footer;
